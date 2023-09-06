@@ -8,7 +8,10 @@ $points = 0;
 $leftEvent = $response[generate()];
 $rightEvent = $response[generate()];
 
-echo "TEST: {$leftEvent['name']}";
+#DEBUG
+#echo "left: {$leftEvent['date']}";
+#echo "<br>";
+#echo "right: {$rightEvent['date']}";
 function guessFuture() {
     global $leftEvent;
     global $rightEvent;
@@ -17,7 +20,7 @@ function guessFuture() {
 
     if (isFuture($leftEvent, $rightEvent)) {
         $points++;
-        $leftEvent = $rightEvent;
+        $leftEvent = $rightEvent;//serialize()
         $rightEvent = $response[generate()];
     } else {
         $rightEvent = $response[generate()];
@@ -41,14 +44,8 @@ function guessPast() {
     }
 }
 
-#echo "Future: " + isFuture($leftEvent, $rightEvent);
-
 function isFuture($event1, $event2) {
-    #does not work
-    $format = "Y/m/d";
-    $date1 = date_format($event1['date'], $format);
-    $date2 = date_format($event2['date'], $format);
-    return $date1 > $date2;
+    return strtotime($event1['date']) < strtotime($event2['date']);
 }
 
 function generate() {
