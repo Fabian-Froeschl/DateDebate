@@ -3,6 +3,7 @@
 global $response;
 include 'database.php';
 
+$points = 0;
 
 $leftEvent = $response[generate()];
 $rightEvent = $response[generate()];
@@ -12,22 +13,32 @@ function guessFuture() {
     global $leftEvent;
     global $rightEvent;
     global $response;
+    global $points;
 
     if (isFuture($leftEvent, $rightEvent)) {
+        $points++;
         $leftEvent = $rightEvent;
         $rightEvent = $response[generate()];
-    }//else wrong
+    } else {
+        $rightEvent = $response[generate()];
+        //next try
+    }
 }
 
 function guessPast() {
     global $leftEvent;
     global $rightEvent;
     global $response;
+    global $points;
 
     if (!isFuture($leftEvent, $rightEvent)) {
+        $points++;
         $leftEvent = $rightEvent;
         $rightEvent = $response[generate()];
-    }//else wrong
+    } else {
+        $rightEvent = $response[generate()];
+        //next try
+    }
 }
 
 #echo "Future: " + isFuture($leftEvent, $rightEvent);
