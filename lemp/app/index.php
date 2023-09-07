@@ -8,29 +8,37 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <ul class="nav">
+    <ul class="nav justify-content-center">
         <li class="nav-item">
             <h1>DateDebate</h1>
         </li>
     </ul>
     <div class="container">
 
-        <div class="row">
+        <div class="row top-50">
             <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                <div class="card">
+                    <img src="./files/pepi.JPG" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Event1</h5>
-                    <h5 class="card-text">Jahreszahl</h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Pepi hat Sonnenbrand und kauft sich Mascarpone</h5>
+                    <h5 class="card-text">04.04.2022</h5>
                 </div>
             </div>
             </div>
             <div class="col-sm">
-                One of three columns
+                <div class="btn-group" role="group" aria-label="BeforeOrLater">
+                    <button type="button" class="btn btn-primary btnborder1">Before</button>
+                    <button type="button" class="btn btn-primary btnborder2">Later</button>
             </div>
+            </div>
+            
             <div class="col-sm">
-                One of three columns
+                <div class="card">
+                    <img src="./files/pepi.JPG" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Pepi hat Sonnenbrand und kauft sich Mascarpone</h5>
+                    <h5 class="card-text">04.04.2022</h5>
+                </div>
             </div>
         </div>
     </div>
