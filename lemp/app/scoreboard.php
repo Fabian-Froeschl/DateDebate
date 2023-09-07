@@ -25,6 +25,7 @@
 
         ?>
     </table>
+    <button id="retry">Retry</button>
     <script src="js/scoreboard.js"></script>
 </body>
 </html>

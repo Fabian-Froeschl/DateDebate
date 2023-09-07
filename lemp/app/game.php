@@ -1,6 +1,8 @@
-<?php 
+<?php
+    ini_set('error_reporting', 0);
+    ini_set('display_errors', 0);
     session_start();
-    
+
     global $events;
     include 'database/gameHandler.php';
     
@@ -11,6 +13,9 @@
     if(!(isset($_SESSION['leftEvent']) && isset($_SESSION['rightEvent']))){
         $_SESSION['leftEvent'] = $events[generateNumber()];
         $_SESSION['rightEvent'] = $events[generateNumber()];
+        while($_SESSION['rightEvent']['id'] == $_SESSION['leftEvent']['id']){
+            $_SESSION['rightEvent'] = $events[generateNumber()];
+        }
     }
     
 ?>

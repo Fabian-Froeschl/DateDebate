@@ -21,3 +21,7 @@ document.getElementById('userInputSubmit').addEventListener('click', () => {
     );
     window.location.reload();
 });
+
+document.getElementById('retry').addEventListener('click', () => {
+    window.location.replace("index.php");
+});
