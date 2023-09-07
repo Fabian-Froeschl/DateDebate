@@ -6,8 +6,15 @@ include 'database.php';
 
 #$points = 0;
 
-$leftEvent = $events[generateNumber()];
-$rightEvent = $events[generateNumber()];
+if($leftEvent == null){
+    $leftEvent = $events[generateNumber()];
+}
+if($rightEvent == null){
+    $rightEvent = $events[generateNumber()];
+}
+if($leftEvent == $rightEvent){
+    $rightEvent = $events[generateNumber()];
+}
 
 $megaData = [
     $leftEvent,

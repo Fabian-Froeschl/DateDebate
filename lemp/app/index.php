@@ -27,8 +27,8 @@
             </div>
             <div class="col-sm align-items-center">
                 <div class="btn-group" role="group" aria-label="BeforeOrLater">
-                    <button type="button" class="btn btn-outline-primary rounded-start-pill" style="width:2vw;">Before</button>
-                    <button type="button" class="btn btn-outline-primary rounded-end-pill" style="width:2vw;">Later</button>
+                    <button id="btn_before" type="button" class="btn btn-outline-primary rounded-start-pill" style="width:2vw;">Before</button>
+                    <button id="btn_after" type="button" class="btn btn-outline-primary rounded-end-pill" style="width:2vw;">Later</button>
             </div>
             </div>
             
@@ -44,5 +44,18 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        document.getElementById('btn_before').addEventListener('click', () => {
+            <?php 
+                include 'database/gameHandler.php'; 
+                echo "alert('test');";
+                guessPast(); 
+            ?>
+        });
+        document.getElementById('btn_after').addEventListener('click', () => {
+            <?php guessFuture(); ?>
+        });
+    </script>
+</body>
 </html>
