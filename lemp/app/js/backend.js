@@ -21,14 +21,23 @@ function buttons(btnType){
 /*Name von event bekommen
 
  */
+
 $.ajax({
 
     url: 'database/gameHandler.php',
     type: 'GET',
     success: function(response){
-        document.getElementById("event-left-name").innerHTML = response[0]['name'];
+
+        response = JSON.parse(response);
+        console.log(response);
+        
+
+        document.getElementById("event-left-name").innerText = response['message'][0]['name'];
+        document.getElementById("event-right-name").innerText = response['message'][1]['name'];
     },
     error: function(xhr, status, error){
-        console.log("error!")
+        console.log(xhr);
+        console.log(status);
+        console.log(error);
     }
 });

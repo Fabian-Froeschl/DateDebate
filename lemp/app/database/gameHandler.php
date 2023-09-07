@@ -2,22 +2,26 @@
 
 global $points;
 global $events;
+global $leftEvent;
+global $rightEvent;
 include 'database.php';
 
 #$points = 0;
 
-$leftEvent = $events[generateNumber()];
-$rightEvent = $events[generateNumber()];
-
-$megaData = [
-    $leftEvent,
-    $rightEvent
-];
+if($leftEvent == null && $rightEvent == null) {
+    $leftEvent = $events[generateNumber()];
+    $rightEvent = $events[generateNumber()];
+}
+if($leftEvent['name'] == $rightEvent['name']) {
+    $rightEvent = $events[generateNumber()];
+}
+$megaData = array($leftEvent, $rightEvent);
 
 # Transmit Backend data to local javascript
 #echo json_encode($megaData);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    
     $response = array('status' => 'success', 'message' => $megaData);
     echo json_encode($response);
 }
