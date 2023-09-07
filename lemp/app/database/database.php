@@ -35,6 +35,6 @@ if ($connection) {
             $i++;
         }
     }
-    echo json_encode($response);
+    echo json_encode($events);
 } else
     echo "Database connection failed";
