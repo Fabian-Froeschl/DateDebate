@@ -10,14 +10,17 @@ function buttons(btnType){
             dataType: 'json',
             data: {btnType: btnType},
             success: function(response){
-                console.log(response['leftEvent']['name']);
+                //console.log(response['leftEvent']['name']);
                 document.getElementById("event-left-name").innerText = response['leftEvent']['name'];
-                document.getElementById("event-left-date").innerText = response['leftEvent']['date'];
+                document.getElementById("event-left-date").innerText = response['leftEvent']['date'] + " " + response['leftEvent']['era'];
                 document.getElementById("event-right-name").innerText = response['rightEvent']['name'];
+
+                document.getElementById("event-left-img").src = "images/" + response['leftEvent']['id'] + ".jpg";
+                document.getElementById("event-right-img").src = "images/" + response['rightEvent']['id'] + ".jpg";
                 // refreshEvents();
             },
             error: function(xhr, status, error){
-                console.log(error);
+                window.location.href = 'scoreboard.php';
             }
         }
     );

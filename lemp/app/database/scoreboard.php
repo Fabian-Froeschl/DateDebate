@@ -4,7 +4,7 @@ global $scoreboard;
 global $connection;
 global $points;
 include 'database.php';
-include 'databaseProvider.php';
+//include 'databaseProvider.php';
 
 function getPlayerByRank($rank){
     global $scoreboard;
@@ -21,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['usr'];
 
     #########SQL shit
-    $statement = "insert into players(player, score) VALUES ('".$username."', $points)";
+    $usrPoints = $_SESSION['points'];
+    $statement = "insert into players(player, score) VALUES ('".$username."', $usrPoints)";
+    var_dump($statement);
+    die();
     # So sama am Föhla draufkemma (Copyright Macho)
     #echo json_encode($statement);
     #die();

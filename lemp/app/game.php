@@ -38,10 +38,14 @@
     <div class="row top-50">
         <div class="col-sm">
             <div class="card">
-                <img src="./files/pepi.JPG" class="card-img-top" alt="...">
+                <img id="event-left-img" src="images/<?php echo $_SESSION['leftEvent']['id'] ?>.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 id="event-left-name" class="card-title"></h5>
-                    <h5 id="event-left-date" class="card-text">04.04.2022</h5>
+                    <h5 id="event-left-name" class="card-title">
+                        <?php echo $_SESSION['leftEvent']['name'] ?>
+                    </h5>
+                    <h5 id="event-left-date" class="card-text">
+                        <?php echo ($_SESSION['leftEvent']['date']." ".$_SESSION['leftEvent']['era']) ?>
+                    </h5>
                 </div>
             </div>
         </div>
@@ -58,9 +62,11 @@
 
         <div class="col-sm">
             <div class="card">
-                <img src="./files/pepi.JPG" class="card-img-top" alt="...">
+                <img id="event-right-img" src="images/<?php echo $_SESSION['rightEvent']['id'] ?>.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 id="event-right-name" class="card-title"></h5>
+                    <h5 id="event-right-name" class="card-title">
+                        <?php echo $_SESSION['rightEvent']['name'] ?>
+                    </h5>
                     <h5 id="event-right-date" class="card-text"></h5>
                 </div>
             </div>
