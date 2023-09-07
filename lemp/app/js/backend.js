@@ -10,6 +10,7 @@ function buttons(btnType){
             data: {btnType: btnType},
             success: function(response){
                 console.log(response);
+                refreshEvents();
             },
             error: function(xhr, status, error){
                 console.log(error);
@@ -22,26 +23,30 @@ function buttons(btnType){
 
  */
 
-$.ajax({
+function refreshEvents(){
+    $.ajax({
 
-    url: 'database/gameHandler.php',
-    type: 'GET',
-    success: function(response){
-        if(response == ""){
-            return;
+        url: 'database/gameHandler.php',
+        type: 'GET',
+        success: function(response){
+            if(response == ""){
+                return;
+            }
+            response = JSON.parse(response);
+            console.log(response);
+            
+    
+            document.getElementById("event-left-name").innerText = response['message'][0]['name'];
+            document.getElementById("event-right-name").innerText = response['message'][1]['name'];
+            document.getElementById("event-left-date").innerText = response['message'][0]['date'] + " " + response['message'][0]['era'];
+            // document.getElementById("event-right-date").innerText = response['message'][1]['date'] + " " + response['message'][1]['era'];
+        },
+        error: function(xhr, status, error){
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
         }
-        response = JSON.parse(response);
-        console.log(response);
-        
+    });
+}
 
-        document.getElementById("event-left-name").innerText = response['message'][0]['name'];
-        document.getElementById("event-right-name").innerText = response['message'][1]['name'];
-        document.getElementById("event-left-date").innerText = response['message'][0]['date'] + " " + response['message'][0]['era'];
-        // document.getElementById("event-right-date").innerText = response['message'][1]['date'] + " " + response['message'][1]['era'];
-    },
-    error: function(xhr, status, error){
-        console.log(xhr);
-        console.log(status);
-        console.log(error);
-    }
-});
+refreshEvents();
