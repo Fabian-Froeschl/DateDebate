@@ -18,5 +18,6 @@ if ($connection) {
             $i++;
         }
     }
+    echo json_encode($response);
 } else
     echo "Database connection failed";
