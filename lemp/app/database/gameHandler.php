@@ -1,29 +1,29 @@
 <?php
 
-global $response;
+global $events;
 include 'database.php';
 
 $points = 0;
 
-$leftEvent = $response[generate()];
-$rightEvent = $response[generate()];
+$leftEvent = $events[generateNumber()];
+$rightEvent = $events[generateNumber()];
 
 #DEBUG
-#echo "left: {$leftEvent['date']}";
-#echo "<br>";
-#echo "right: {$rightEvent['date']}";
+echo "left: {$leftEvent['date']}";
+echo "<br>";
+echo "right: {$rightEvent['date']}";
 function guessFuture() {
     global $leftEvent;
     global $rightEvent;
-    global $response;
+    global $events;
     global $points;
 
     if (isFuture($leftEvent, $rightEvent)) {
         $points++;
         $leftEvent = $rightEvent;//serialize()
-        $rightEvent = $response[generate()];
+        $rightEvent = $events[generateNumber()];
     } else {
-        $rightEvent = $response[generate()];
+        $rightEvent = $events[generateNumber()];
         //next try
     }
 }
@@ -31,15 +31,15 @@ function guessFuture() {
 function guessPast() {
     global $leftEvent;
     global $rightEvent;
-    global $response;
+    global $events;
     global $points;
 
     if (!isFuture($leftEvent, $rightEvent)) {
         $points++;
         $leftEvent = $rightEvent;
-        $rightEvent = $response[generate()];
+        $rightEvent = $events[generateNumber()];
     } else {
-        $rightEvent = $response[generate()];
+        $rightEvent = $events[generateNumber()];
         //next try
     }
 }
@@ -48,7 +48,7 @@ function isFuture($event1, $event2) {
     return strtotime($event1['date']) < strtotime($event2['date']);
 }
 
-function generate() {
-    global $response;
-    return rand(0, (count($response) - 1));
+function generateNumber() {
+    global $events;
+    return rand(0, (count($events) - 1));
 }
