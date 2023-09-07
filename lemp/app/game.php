@@ -10,7 +10,7 @@
   <body>
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <h1>DateDebate</h1>
+            <img src="files/date-debate-title.gif" width="300px">
         </li>
     </ul>
     <div class="container">
