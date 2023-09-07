@@ -36,6 +36,8 @@ $.ajax({
 
         document.getElementById("event-left-name").innerText = response['message'][0]['name'];
         document.getElementById("event-right-name").innerText = response['message'][1]['name'];
+        document.getElementById("event-left-date").innerText = response['message'][0]['date'] + " " + response['message'][0]['era'];
+        // document.getElementById("event-right-date").innerText = response['message'][1]['date'] + " " + response['message'][1]['era'];
     },
     error: function(xhr, status, error){
         console.log(xhr);
