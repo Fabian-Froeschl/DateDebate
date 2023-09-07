@@ -1,28 +1,29 @@
 <?php
+session_start();
 
-global $points;
+$points = $_SESSION['points'];
 global $events;
+$leftEvent = $_SESSION['leftEvent'];
+$rightEvent = $_SESSION['rightEvent'];
 include 'database.php';
 
 #$points = 0;
 
-if($leftEvent == null){
-    $leftEvent = $events[generateNumber()];
-}
-if($rightEvent == null){
-    $rightEvent = $events[generateNumber()];
-}
-if($leftEvent == $rightEvent){
-    $rightEvent = $events[generateNumber()];
-}
 
-$megaData = [
-    $leftEvent,
-    $rightEvent
-];
+
+$megaData = array($leftEvent, $rightEvent);
 
 # Transmit Backend data to local javascript
-echo json_encode($megaData);
+#echo json_encode($megaData);
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    
+    // $response = array('status' => 'success', 'message' => $megaData);
+    // echo json_encode($response);
+    //$_SESSION['leftEvent'] = $leftEvent;
+    //$_SESSION['rightEvent'] = $rightEvent;
+
+}
 
 function guessFuture() {
     global $leftEvent;
@@ -32,10 +33,11 @@ function guessFuture() {
 
     if (isFuture($leftEvent, $rightEvent)) {
         $points++;
-        $leftEvent = $rightEvent;//serialize()
-        $rightEvent = $events[generateNumber()];
+        $_SESSION['leftEvent'] = $_SESSION['rightEvent'];//serialize()
+        $_SESSION['rightEvent'] = $events[generateNumber()];
+        //UPDATE IMAGE
     } else {
-        $rightEvent = $events[generateNumber()];
+        //$rightEvent = $events[generateNumber()];
         gameEnd();
     }
 }
@@ -47,17 +49,20 @@ function guessPast() {
     global $points;
 
     if (!isFuture($leftEvent, $rightEvent)) {
-        $points++;
-        $leftEvent = $rightEvent;
-        $rightEvent = $events[generateNumber()];
+        $_SESSION['points'] = $_SESSION['points'] + 1;
+        $_SESSION['leftEvent'] = $_SESSION['rightEvent'];
+        $_SESSION['rightEvent'] = $events[generateNumber()];
+        //UPDATE IMAGE
+
     } else {
-        $rightEvent = $events[generateNumber()];
+        //$rightEvent = $events[generateNumber()];
         gameEnd();
     }
 }
 
 function gameEnd(){
-    header("Location: scoreboard.php");
+    echo "gameEnd";
+    header("Location: ./scoreboard.php");
     exit();
 }
 
