@@ -25,10 +25,10 @@
                 </div>
             </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm align-items-center">
                 <div class="btn-group" role="group" aria-label="BeforeOrLater">
-                    <button type="button" class="btn btn-primary btnborder1">Before</button>
-                    <button type="button" class="btn btn-primary btnborder2">Later</button>
+                    <button type="button" class="btn btn-outline-primary rounded-start-pill" style="width:2vw;">Before</button>
+                    <button type="button" class="btn btn-outline-primary rounded-end-pill" style="width:2vw;">Later</button>
             </div>
             </div>
             
