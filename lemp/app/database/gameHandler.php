@@ -8,10 +8,14 @@ $points = 0;
 $leftEvent = $events[generateNumber()];
 $rightEvent = $events[generateNumber()];
 
-#DEBUG
-echo "left: {$leftEvent['date']}";
-echo "<br>";
-echo "right: {$rightEvent['date']}";
+$megaData = [
+    $leftEvent,
+    $rightEvent
+];
+
+# Transmit Backend data to local javascript
+echo json_encode($megaData);
+
 function guessFuture() {
     global $leftEvent;
     global $rightEvent;
@@ -52,3 +56,4 @@ function generateNumber() {
     global $events;
     return rand(0, (count($events) - 1));
 }
+

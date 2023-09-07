@@ -1,8 +1,8 @@
 <?php
-$hostname = "172.18.0.2";
+$hostname = "localhost";
 $port = "3306";
 $database = "datedebate";
 $username = "root";
-$password = "!krems";
+$password = "";
 
 $connection = mysqli_connect($hostname, $username, $password, $database, $port);
