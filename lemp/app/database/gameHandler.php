@@ -50,7 +50,7 @@ function guessPast() {
 }
 
 function gameEnd(){
-    header("Location: testscoreboard.php");
+    header("Location: scoreboard.php");
     exit();
 }
 
