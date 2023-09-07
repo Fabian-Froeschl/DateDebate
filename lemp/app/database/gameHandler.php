@@ -7,10 +7,6 @@ $leftEvent = $_SESSION['leftEvent'];
 $rightEvent = $_SESSION['rightEvent'];
 include 'database.php';
 
-#$points = 0;
-
-
-
 $megaData = array($leftEvent, $rightEvent);
 
 # Transmit Backend data to local javascript
