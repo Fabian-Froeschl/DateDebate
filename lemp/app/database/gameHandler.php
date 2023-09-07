@@ -67,6 +67,15 @@ function gameEnd(){
 }
 
 function isFuture($event1, $event2) {
+    if($event1['era'] == "BC" && $event2['era'] == "AD"){
+        return false;
+    }
+    if($event1['era'] == "AD" && $event2['era'] == "BC"){
+        return true;
+    }
+    if($event1['era'] == "BC" && $event2['era'] == "BC"){
+        return strtotime($event1['date']) > strtotime($event2['date']);
+    }
     return strtotime($event1['date']) < strtotime($event2['date']);
 }
 
