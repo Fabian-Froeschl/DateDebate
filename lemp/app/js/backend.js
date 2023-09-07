@@ -27,7 +27,9 @@ $.ajax({
     url: 'database/gameHandler.php',
     type: 'GET',
     success: function(response){
-
+        if(response == ""){
+            return;
+        }
         response = JSON.parse(response);
         console.log(response);
         
