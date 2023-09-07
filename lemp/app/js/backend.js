@@ -1,12 +1,13 @@
-document.getElementById('sendUsername').addEventListener('click', () => {
-    var username = document.getElementById('name').value;
-    if(username == "" || username == null)return;
+let btn_before = document.getElementById('btn-before');
+let btn_later = document.getElementById('btn-later');
+btn_before.addEventListener('click', () => buttons(btn_before.value));
+btn_later.addEventListener('click', () => buttons(btn_later.value));
+function buttons(btnType){
     $.ajax(
         {
-            url: 'database/scoreboard.php',
+            url: 'database/gameConnection.php',
             type: 'POST',
-            dataType: 'json',
-            data: {usr: username},
+            data: {btnType: btnType},
             success: function(response){
                 console.log(response);
             },
@@ -15,15 +16,17 @@ document.getElementById('sendUsername').addEventListener('click', () => {
             }
         }
     );
-});
+}
 
+/*Name von event bekommen
+
+ */
 $.ajax({
 
     url: 'database/gameHandler.php',
     type: 'GET',
-    dataType: 'json',
     success: function(response){
-        document.getElementById("test").innerHTML = response[0]['name'];
+        document.getElementById("event-left-name").innerHTML = response[0]['name'];
     },
     error: function(xhr, status, error){
         console.log("error!")

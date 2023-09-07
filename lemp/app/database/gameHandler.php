@@ -15,7 +15,12 @@ $megaData = [
 ];
 
 # Transmit Backend data to local javascript
-echo json_encode($megaData);
+#echo json_encode($megaData);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $response = array('status' => 'success', 'message' => $megaData);
+    echo json_encode($response);
+}
 
 function guessFuture() {
     global $leftEvent;
@@ -27,6 +32,7 @@ function guessFuture() {
         $points++;
         $leftEvent = $rightEvent;//serialize()
         $rightEvent = $events[generateNumber()];
+        //UPDATE IMAGE
     } else {
         $rightEvent = $events[generateNumber()];
         gameEnd();
@@ -43,6 +49,8 @@ function guessPast() {
         $points++;
         $leftEvent = $rightEvent;
         $rightEvent = $events[generateNumber()];
+        //UPDATE IMAGE
+
     } else {
         $rightEvent = $events[generateNumber()];
         gameEnd();
