@@ -13,9 +13,12 @@
     display:flex;
     justify-content: center;
 }
+
 .btn-group{
-    height: 50%;
+    height: 20%;
+    width: 40%;
 }
+
 .card{
     width: 100%;
 }
