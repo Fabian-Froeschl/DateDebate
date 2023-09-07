@@ -7,9 +7,13 @@ function buttons(btnType){
         {
             url: 'database/gameConnection.php',
             type: 'POST',
+            dataType: 'json',
             data: {btnType: btnType},
             success: function(response){
-                console.log(response);
+                console.log(response['leftEvent']['name']);
+                document.getElementById("event-left-name").innerText = response['leftEvent']['name'];
+                document.getElementById("event-left-date").innerText = response['leftEvent']['date'];
+                document.getElementById("event-right-name").innerText = response['rightEvent']['name'];
                 // refreshEvents();
             },
             error: function(xhr, status, error){

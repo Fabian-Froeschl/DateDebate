@@ -1,5 +1,6 @@
 <?php
-
+global $leftEvent;
+global $rightEvent;
 include 'gameHandler.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,6 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
     }
 
-    $response = array('status' => 'success', 'message' => "Data received!");
+    $response = array('status' => 'success', 'leftEvent' => $leftEvent, 'rightEvent' => $rightEvent);
     echo json_encode($response);
 }

@@ -40,7 +40,7 @@
             <div class="card">
                 <img src="./files/pepi.JPG" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 id="event-left-name" class="card-title">Pepi hat Sonnenbrand und kauft sich Mascarpone</h5>
+                    <h5 id="event-left-name" class="card-title"></h5>
                     <h5 id="event-left-date" class="card-text">04.04.2022</h5>
                 </div>
             </div>
