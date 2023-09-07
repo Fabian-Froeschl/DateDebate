@@ -10,6 +10,8 @@ services:
             - './app:/var/www/html'
         depends_on:
             - mariadb
+        networks:
+            - lan1
 
     nginx:
         image: nginx:latest
@@ -22,6 +24,8 @@ services:
         volumes:
             - './app:/var/www/html'
             - './config/nginx:/etc/nginx/conf.d'
+        networks:
+            - lan1
 
     mariadb:
         image: mariadb:10.3.9
@@ -34,3 +38,9 @@ services:
         
         volumes:
             - './data/mariadb:/var/lib/mysql'
+        networks:
+            - lan1
+
+networks:
+    lan1:
+        external: true
