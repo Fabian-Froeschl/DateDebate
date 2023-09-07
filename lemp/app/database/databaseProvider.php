@@ -6,4 +6,3 @@ $username = "root";
 $password = "!krems";
 
 $connection = mysqli_connect($hostname, $username, $password, $database, $port);
-
