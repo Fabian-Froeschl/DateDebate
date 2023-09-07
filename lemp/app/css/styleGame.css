@@ -2,12 +2,13 @@
     background-color: #E0CFCC;
 }
 .nav{
-    background-color: cornflowerblue;
+    background-color: lightgray;
+    border-radius: 0 0 40px 40px;
 }
 .row {
     display: flex;
     justify-content: space-around;
-    margin:auto;
+    margin: 5% auto auto auto;
 }
 .col-sm {
     display:flex;
@@ -20,5 +21,5 @@
 }
 
 .card{
-    width: 100%;
+    width: 70%;
 }

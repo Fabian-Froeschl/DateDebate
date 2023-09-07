@@ -6,7 +6,9 @@ include 'databaseProvider.php';
 
 $events = array();
 $scoreboard = array();
-$points = 0;
+if($points == 0){
+    $points = 0;
+}
 
 if ($connection) {
     ##Events##
