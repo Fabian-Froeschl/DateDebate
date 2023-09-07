@@ -1,10 +1,12 @@
 <?php
 
+global $points;
 global $connection;
 include 'databaseProvider.php';
 
 $events = array();
 $scoreboard = array();
+$points = 0;
 
 if ($connection) {
     ##Events##

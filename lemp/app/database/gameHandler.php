@@ -1,9 +1,10 @@
 <?php
 
+global $points;
 global $events;
 include 'database.php';
 
-$points = 0;
+#$points = 0;
 
 $leftEvent = $events[generateNumber()];
 $rightEvent = $events[generateNumber()];
