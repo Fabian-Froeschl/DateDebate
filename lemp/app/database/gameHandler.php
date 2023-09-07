@@ -8,13 +8,8 @@ include 'database.php';
 
 #$points = 0;
 
-if($leftEvent == null && $rightEvent == null) {
-    $leftEvent = $events[generateNumber()];
-    $rightEvent = $events[generateNumber()];
-}
-if($leftEvent['name'] == $rightEvent['name']) {
-    $rightEvent = $events[generateNumber()];
-}
+
+
 $megaData = array($leftEvent, $rightEvent);
 
 # Transmit Backend data to local javascript
@@ -22,8 +17,11 @@ $megaData = array($leftEvent, $rightEvent);
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
-    $response = array('status' => 'success', 'message' => $megaData);
-    echo json_encode($response);
+    // $response = array('status' => 'success', 'message' => $megaData);
+    // echo json_encode($response);
+    $_SESSION['leftEvent'] = $leftEvent;
+    $_SESSION['rightEvent'] = $rightEvent;
+
 }
 
 function guessFuture() {

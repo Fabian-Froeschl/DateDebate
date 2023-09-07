@@ -1,3 +1,20 @@
+<?php 
+    session_start();
+    
+    global $events;
+    include 'database/gameHandler.php';
+    
+    if(!isset( $_SESSION['points'] ) ) {
+        $_SESSION['points'] = 0;
+    }
+
+    if(!(isset($_SESSION['leftEvent']) && isset($_SESSION['rightEvent']))){
+        $_SESSION['leftEvent'] = $events[generateNumber()];
+        $_SESSION['rightEvent'] = $events[generateNumber()];
+    }
+    
+?>
+
 <!doctype html>
 <html lang="de">
 <head>
@@ -8,6 +25,7 @@
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styleGame.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 <body>
 <ul class="nav justify-content-center">
@@ -42,7 +60,7 @@
             <div class="card">
                 <img src="./files/pepi.JPG" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 id="event-right-name" class="card-title">Pepi hat Sonnenbrand und kauft sich Mascarpone</h5>
+                    <h5 id="event-right-name" class="card-title"></h5>
                     <h5 id="event-right-date" class="card-text"></h5>
                 </div>
             </div>
@@ -55,3 +73,5 @@
             crossorigin="anonymous"></script>
 </body>
 </html>
+
+

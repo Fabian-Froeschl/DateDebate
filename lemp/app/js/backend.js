@@ -10,7 +10,7 @@ function buttons(btnType){
             data: {btnType: btnType},
             success: function(response){
                 console.log(response);
-                refreshEvents();
+                // refreshEvents();
             },
             error: function(xhr, status, error){
                 console.log(error);
@@ -23,30 +23,43 @@ function buttons(btnType){
 
  */
 
-function refreshEvents(){
-    $.ajax({
+// function refreshEvents(){
+//      $.ajax({
+//          url: 'database/gameHandler.php',
+//          type: 'GET',
+//          success: function(response){
+//              if(response == ""){
+//                  return;
+//              }
+//              response = JSON.parse(response);
+//              console.log(response);
+          
+  
+//              document.getElementById("event-left-name").innerText = response['message'][0]['name'];
+//              document.getElementById("event-right-name").innerText = response['message'][1]['name'];
+//              document.getElementById("event-left-date").innerText = response['message'][0]['date'] + " " + response['message'][0]['era'];
+//              // document.getElementById("event-right-date").innerText = response['message'][1]['date'] + " " + response['message'][1]['era'];
+//          },
+//          error: function(xhr, status, error){
+//              console.log(xhr);
+//              console.log(status);
+//              console.log(error);
+//          }
+//    });
+// }
 
-        url: 'database/gameHandler.php',
-        type: 'GET',
-        success: function(response){
-            if(response == ""){
-                return;
-            }
-            response = JSON.parse(response);
-            console.log(response);
-            
-    
-            document.getElementById("event-left-name").innerText = response['message'][0]['name'];
-            document.getElementById("event-right-name").innerText = response['message'][1]['name'];
-            document.getElementById("event-left-date").innerText = response['message'][0]['date'] + " " + response['message'][0]['era'];
-            // document.getElementById("event-right-date").innerText = response['message'][1]['date'] + " " + response['message'][1]['era'];
-        },
-        error: function(xhr, status, error){
-            console.log(xhr);
-            console.log(status);
-            console.log(error);
-        }
-    });
-}
+// function refreshEvents(){
+//     // load left and right event from session
+//     var getCookie = function(name) {
+//         var cookies = document.cookie.split(';');
+//         for(var i=0 ; i < cookies.length ; ++i) {
+//             var pair = cookies[i].trim().split('=');
+//             if(pair[0] == name)
+//                 return pair[1];
+//         }
+//         return null;
+//     };
+//     console.log(document.cookie);
+// }
 
-refreshEvents();
+// refreshEvents();
