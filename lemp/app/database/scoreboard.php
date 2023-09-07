@@ -13,4 +13,4 @@ function getPlayerByRank($rank){
 #$result = getPlayerByRank(0);
 
 #echo "{$result['name']}------{$result['score']}";
-echo $scoreboard[0]['name'];
+#echo $scoreboard[1]['score'];

@@ -28,7 +28,7 @@ function guessFuture() {
         $rightEvent = $events[generateNumber()];
     } else {
         $rightEvent = $events[generateNumber()];
-        //next try
+        gameEnd();
     }
 }
 
@@ -44,8 +44,12 @@ function guessPast() {
         $rightEvent = $events[generateNumber()];
     } else {
         $rightEvent = $events[generateNumber()];
-        //next try
+        gameEnd();
     }
+}
+
+function gameEnd(){
+
 }
 
 function isFuture($event1, $event2) {

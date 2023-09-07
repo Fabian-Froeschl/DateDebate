@@ -23,7 +23,7 @@ if ($connection) {
     }
 
     ##Scoreboard##
-    $statement = "select * from scoreboard";
+    $statement = "select * from players ORDER BY score DESC";
     $result = mysqli_query($connection, $statement);
     if ($result){
         header("Content-Type: JSON");
@@ -35,6 +35,6 @@ if ($connection) {
             $i++;
         }
     }
-    echo json_encode($events);
+    #echo json_encode($scoreboard);
 } else
     echo "Database connection failed";
