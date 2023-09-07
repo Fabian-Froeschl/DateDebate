@@ -11,7 +11,7 @@ document.getElementById('sendUsername').addEventListener('click', () => {
                 console.log(response);
             },
             error: function(xhr, status, error){
-                console.log(error)
+                console.log(error);
             }
         }
     );
