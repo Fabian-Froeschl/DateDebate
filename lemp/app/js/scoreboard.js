@@ -1,4 +1,5 @@
-var username = document.getElementById("username").value;
+// var username = document.getElementById("username").value;
+var username = "ka";
 
 $.ajax(
     {

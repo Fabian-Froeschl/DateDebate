@@ -11,6 +11,8 @@
 <body>
     <h1>testpage</h1>
     <h1 id="test"></h1>
+    <h1 id="username"></h1>
     <script src="js/backend.js"></script>
+    <script src="js/scoreboard.js"></script>
 </body>
 </html>
