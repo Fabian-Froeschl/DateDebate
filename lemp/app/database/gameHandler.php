@@ -50,7 +50,8 @@ function guessPast() {
 }
 
 function gameEnd(){
-
+    header("Location: testscoreboard.php");
+    exit();
 }
 
 function isFuture($event1, $event2) {

@@ -11,6 +11,11 @@ function getPlayerByRank($rank){
     return $scoreboard[$rank];
 }
 
+function getRankCount(){
+    global $scoreboard;
+    return count($scoreboard);
+}
+
 $username = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['usr'];
@@ -23,6 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = mysqli_query($connection, $statement);
     #########
 
-    $response = array('status' => 'success', 'message' => $username);
+    $response = array('status' => 'success', 'message' => "Data received!");
     echo json_encode($response);
 }

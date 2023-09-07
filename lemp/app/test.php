@@ -10,9 +10,13 @@
 </head>
 <body>
     <h1>testpage</h1>
+
     <h1 id="test"></h1>
+
     <h1 id="username"></h1>
+    <input type="text" id="name">
+    <button id="sendUsername">Click</button>
+
     <script src="js/backend.js"></script>
-    <script src="js/scoreboard.js"></script>
 </body>
 </html>
