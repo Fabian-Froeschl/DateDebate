@@ -44,9 +44,9 @@
             <div class="card">
                 <img id="event-left-img" src="images/<?php echo $_SESSION['leftEvent']['id'] ?>.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 id="event-left-name" class="card-title">
+                    <h4 id="event-left-name" class="card-title">
                         <?php echo $_SESSION['leftEvent']['name'] ?>
-                    </h5>
+                    </h4>
                     <h5 id="event-left-date" class="card-text">
                         <?php echo ($_SESSION['leftEvent']['date']." ".$_SESSION['leftEvent']['era']) ?>
                     </h5>
@@ -56,10 +56,10 @@
         <div class="col-sm align-items-center">
             <div class="btn-group" role="group" aria-label="BeforeOrLater">
                 <button id="btn-before" value="before" type="button" class="btn btn-outline-primary rounded-start-pill"
-                        style="width:2vw;">Before
+                        style="width:2vw; border-color: green; color: green">Before
                 </button>
                 <button id="btn-later" value="later" type="button" class="btn btn-outline-primary rounded-end-pill"
-                        style="width:2vw;">Later
+                        style="width:2vw; border-color: red; color: red">Later
                 </button>
             </div>
         </div>
@@ -68,9 +68,9 @@
             <div class="card">
                 <img id="event-right-img" src="images/<?php echo $_SESSION['rightEvent']['id'] ?>.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 id="event-right-name" class="card-title">
+                    <h4 id="event-right-name" class="card-title">
                         <?php echo $_SESSION['rightEvent']['name'] ?>
-                    </h5>
+                    </h4>
                     <h5 id="event-right-date" class="card-text"></h5>
                 </div>
             </div>
