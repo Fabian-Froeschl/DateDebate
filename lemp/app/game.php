@@ -1,6 +1,6 @@
 <?php
-    //ini_set('error_reporting', 0);
-    //ini_set('display_errors', 0);
+    ini_set('error_reporting', 0);
+    ini_set('display_errors', 0);
     session_start();
     $_SESSION['redirect'] = false;
     global $events;
@@ -48,8 +48,14 @@
                     <h4 id="event-left-name" class="card-title">
                         <?php echo $_SESSION['leftEvent']['name'] ?>
                     </h4>
+                    <!--echo ($_SESSION['leftEvent']['date']." ".$_SESSION['leftEvent']['era']);-->
                     <h5 id="event-left-date" class="card-text">
-                        <?php echo ($_SESSION['leftEvent']['date']." ".$_SESSION['leftEvent']['era']) ?>
+                        <?php
+                        $rawDate = $_SESSION['leftEvent']['date'];
+                        $split = explode("-", $rawDate);
+                        $date = $split[2].".".$split[1].".".$split[0];
+                        echo ($date." ".$_SESSION['leftEvent']['era']);
+                        ?>
                     </h5>
                 </div>
             </div>

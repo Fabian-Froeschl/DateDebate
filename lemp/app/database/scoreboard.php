@@ -24,14 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //die();
     #########SQL shit
     $usrPoints = $_SESSION['points'];
-    $statement = "insert into players(player, score) VALUES ('".$username."', $usrPoints)";
+    if ($usrPoints > 0) {
 
-    # So sama am Föhla draufkemma (Copyright Macho)
-    #echo json_encode($statement);
-    #die();
-    $result = mysqli_query($connection, $statement);
-    #########
 
+        $statement = "insert into players(player, score) VALUES ('" . $username . "', $usrPoints)";
+
+        # So sama am Föhla draufkemma (Copyright Macho)
+        #echo json_encode($statement);
+        #die();
+        $result = mysqli_query($connection, $statement);
+        #########
+    }
     session_destroy();
 
     $response = array('status' => 'success', 'message' => "Data received!");

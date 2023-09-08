@@ -12,8 +12,12 @@ function buttons(btnType){
             success: function(response){
                 //setTimeout(() => {}, 1000);
                 //console.log(response['leftEvent']['name']);
+                let raw = response['leftEvent']['date'];
+                let split = raw.split("-");
+                let d = split[2] + "." + split[1] + "." + split[0];
+
                 document.getElementById("event-left-name").innerText = response['leftEvent']['name'];
-                document.getElementById("event-left-date").innerText = response['leftEvent']['date'] + " " + response['leftEvent']['era'];
+                document.getElementById("event-left-date").innerText = d + " " + response['leftEvent']['era'];
                 document.getElementById("event-right-name").innerText = response['rightEvent']['name'];
 
                 document.getElementById("event-left-img").src = "images/" + response['leftEvent']['id'] + ".jpg";
