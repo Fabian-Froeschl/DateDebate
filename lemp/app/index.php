@@ -9,18 +9,16 @@ session_destroy();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
     <link rel="stylesheet" href="css/styleIndex.css">
 </head>
 <body>
-<div id="container">
-    <div id="foreground">
-        <div class="column" style="justify-content: center;">
-            <img src="files/Logo_final.jpg" width="300px" height="300px" class="animated" id="help" >
-            <img src="files/date-debate-title.gif" width="400px" height="100px">
-            <button class="pushableBtn"><a href="./game.php" style="text-decoration: none;"><span class="frontBtn">START</span></a></button>
-        </div>
+    <div class="column" style="justify-content: center;">
+        <img src="files/Logo_final.jpg" width="300px" height="300px" class="animated" id="help" >
+        <img src="files/date-debate-title.gif" width="400px" height="100px">
+        <a type="button" href="./game.php" class="btn btn-light pushableBtn">START</a>
     </div>
-</div>
 </body>
 </html>
