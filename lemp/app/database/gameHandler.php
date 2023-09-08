@@ -61,7 +61,7 @@ function guessPast() {
 }
 
 function gameEnd(){
-    echo "gameEnd";
+    //echo "gameEnd";
     header("Location: ./scoreboard.php");
     exit();
 }

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = mysqli_query($connection, $statement);
     #########
 
-    session_destroy();
+    //session_destroy();
 
     $response = array('status' => 'success', 'message' => "Data received!");
     echo json_encode($response);

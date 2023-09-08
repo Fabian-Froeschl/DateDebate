@@ -13,9 +13,9 @@
     if(!(isset($_SESSION['leftEvent']) && isset($_SESSION['rightEvent']))){
         $_SESSION['leftEvent'] = $events[generateNumber()];
         $_SESSION['rightEvent'] = $events[generateNumber()];
-        while($_SESSION['rightEvent']['id'] == $_SESSION['leftEvent']['id']){
+        /*while($_SESSION['rightEvent']['id'] == $_SESSION['leftEvent']['id']){
             $_SESSION['rightEvent'] = $events[generateNumber()];
-        }
+        }*/
     }
     
 ?>
