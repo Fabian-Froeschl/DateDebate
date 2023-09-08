@@ -1,9 +1,5 @@
-.body{
-    background-color: #E0CFCC;
-}
 .nav{
-    background-color: lightgray;
-    border-radius: 0 0 40px 40px;
+    background-color: #E0CFCC;
 }
 .row {
     display: flex;
