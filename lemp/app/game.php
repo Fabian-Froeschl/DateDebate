@@ -55,11 +55,11 @@
         </div>
         <div class="col-sm align-items-center">
             <div class="btn-group" role="group" aria-label="BeforeOrLater">
-                <button id="btn-before" value="before" type="button" class="btn btn-outline-primary rounded-start-pill"
-                        style="width:2vw; border-color: green; color: green">Before
+                <button id="btn-before" value="before" type="button" class="btn btn-outline-light rounded-start-pill"
+                        style="width:100%; border-color: green; color: green">Before
                 </button>
-                <button id="btn-later" value="later" type="button" class="btn btn-outline-primary rounded-end-pill"
-                        style="width:2vw; border-color: red; color: red">Later
+                <button id="btn-later" value="later" type="button" class="btn btn-outline-light rounded-end-pill"
+                        style="width:100%; border-color: red; color: red">Later
                 </button>
             </div>
         </div>
