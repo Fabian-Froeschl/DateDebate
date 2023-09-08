@@ -10,6 +10,7 @@ function buttons(btnType){
             dataType: 'json',
             data: {btnType: btnType},
             success: function(response){
+                //setTimeout(() => {}, 1000);
                 //console.log(response['leftEvent']['name']);
                 document.getElementById("event-left-name").innerText = response['leftEvent']['name'];
                 document.getElementById("event-left-date").innerText = response['leftEvent']['date'] + " " + response['leftEvent']['era'];
@@ -18,9 +19,12 @@ function buttons(btnType){
                 document.getElementById("event-left-img").src = "images/" + response['leftEvent']['id'] + ".jpg";
                 document.getElementById("event-right-img").src = "images/" + response['rightEvent']['id'] + ".jpg";
                 // refreshEvents();
+                if(response['redirect'] == true)
+                    window.location.href = 'scoreboard.php';
             },
             error: function(xhr, status, error){
-                window.location.href = 'scoreboard.php';
+                //window.location.href = 'scoreboard.php';
+                console.log(error);
             }
         }
     );

@@ -1,17 +1,16 @@
 <?php
+ini_set('error_reporting', 0);
+ini_set('display_errors', 0);
 session_start();
-
-$points = $_SESSION['points'];
 global $events;
-$leftEvent = $_SESSION['leftEvent'];
-$rightEvent = $_SESSION['rightEvent'];
 include 'database.php';
+$_SESSION['events'] = $events;
 
 #$points = 0;
 
 
 
-$megaData = array($leftEvent, $rightEvent);
+$megaData = array($_SESSION['leftEvent'], $_SESSION['rightEvent']);
 
 # Transmit Backend data to local javascript
 #echo json_encode($megaData);
@@ -26,15 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 function guessFuture() {
-    global $leftEvent;
-    global $rightEvent;
-    global $events;
-    global $points;
-
-    if (isFuture($leftEvent, $rightEvent)) {
-        $points++;
+    if (isFuture($_SESSION['leftEvent'], $_SESSION['rightEvent'])) {
+        $_SESSION['points'] = $_SESSION['points'] + 1;
         $_SESSION['leftEvent'] = $_SESSION['rightEvent'];//serialize()
-        $_SESSION['rightEvent'] = $events[generateNumber()];
+        $_SESSION['rightEvent'] = $_SESSION['events'][generateNumber()];
         //UPDATE IMAGE
     } else {
         //$rightEvent = $events[generateNumber()];
@@ -43,15 +37,10 @@ function guessFuture() {
 }
 
 function guessPast() {
-    global $leftEvent;
-    global $rightEvent;
-    global $events;
-    global $points;
-
-    if (!isFuture($leftEvent, $rightEvent)) {
+    if (!isFuture($_SESSION['leftEvent'], $_SESSION['rightEvent'])) {
         $_SESSION['points'] = $_SESSION['points'] + 1;
         $_SESSION['leftEvent'] = $_SESSION['rightEvent'];
-        $_SESSION['rightEvent'] = $events[generateNumber()];
+        $_SESSION['rightEvent'] = $_SESSION['events'][generateNumber()];
         //UPDATE IMAGE
 
     } else {
@@ -61,9 +50,10 @@ function guessPast() {
 }
 
 function gameEnd(){
-    echo "gameEnd";
-    header("Location: ./scoreboard.php");
-    exit();
+    //echo "gameEnd";
+    //header("Location: scoreboard.php");
+    //exit();
+    $_SESSION['redirect'] = true;
 }
 
 function isFuture($event1, $event2) {
@@ -80,7 +70,6 @@ function isFuture($event1, $event2) {
 }
 
 function generateNumber() {
-    global $events;
-    return rand(0, (count($events) - 1));
+    return rand(0, (count($_SESSION['events']) - 1));
 }
 

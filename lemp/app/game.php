@@ -1,11 +1,11 @@
 <?php
-    ini_set('error_reporting', 0);
-    ini_set('display_errors', 0);
+    //ini_set('error_reporting', 0);
+    //ini_set('display_errors', 0);
     session_start();
-
+    $_SESSION['redirect'] = false;
     global $events;
     include 'database/gameHandler.php';
-    
+
     if(!isset( $_SESSION['points'] ) ) {
         $_SESSION['points'] = 0;
     }
@@ -17,7 +17,7 @@
             $_SESSION['rightEvent'] = $events[generateNumber()];
         }
     }
-    
+
 ?>
 
 <!doctype html>
@@ -70,7 +70,7 @@
                 <img id="event-right-img" src="images/<?php echo $_SESSION['rightEvent']['id'] ?>.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 id="event-right-name" class="card-title">
-                        <?php echo $_SESSION['rightEvent']['name'] ?>
+                        <?php echo $_SESSION['rightEvent']['date'] ?>
                     </h5>
                     <h5 id="event-right-date" class="card-text"></h5>
                 </div>
